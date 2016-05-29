@@ -7,10 +7,10 @@
 		<authors>Microsoft</authors>
 		<owners>Kenneth Berntsen</owners>
 		<projectUrl>https://www.visualstudio.com/vs-2015-product-editions</projectUrl>
-		<iconUrl>https://raw.githubusercontent.com/KennethB/Chocolatey-Packages/master/icons/VS2015.png</iconUrl>
+		<iconUrl>https://raw.githubusercontent.com/neutmute/chocolatey-vs/master/icons/VS2015.png</iconUrl>
 		<licenseUrl>http://msdn.microsoft.com/en-US/cc300389.aspx</licenseUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<packageSourceUrl>https://github.com/KennethB/Chocolatey-Packages/tree/master/VisualStudio2015Professional</packageSourceUrl>
+		<packageSourceUrl>https://github.com/neutmute/chocolatey-vs</packageSourceUrl>
 		<docsUrl>https://msdn.microsoft.com/library</docsUrl>
 		<!--
 		<mailingListUrl></mailingListUrl>
