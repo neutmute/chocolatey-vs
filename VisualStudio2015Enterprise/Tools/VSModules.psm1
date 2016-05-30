@@ -144,7 +144,8 @@ Install-ChocolateyPackage
 #>
 param(
   [string] $packageName,
-  [string] $url
+  [string] $url,
+  [string] $exeName
 )
     Write-Debug "Running 'Install-VS' for $packageName with url:`'$url`'";
 
@@ -180,7 +181,7 @@ param(
           -PackageName $packageName `
           -FileType 'exe' `
           -SilentArgs $silentArgs `
-          -File "$visualStudio:setupFolder\setup.exe" `
+          -File "$visualStudio:setupFolder\$exeName" `
           -ValidExitCodes $validExitCodes
     }
     else
