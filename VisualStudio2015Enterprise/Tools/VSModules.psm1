@@ -170,9 +170,60 @@ param(
     Update-Admin-File $packageParameters $adminFile
 
     $silentArgs = Generate-Install-Arguments-String $packageParameters $adminFile
+    
+    DetermineSetupPath
+	
+    if (Test-Path env:\visualStudio:setupFolder)
+    {
+        Write-Output "Installing Visual Studio from $visualStudio:setupFolder"
+        Install-ChocolateyInstallPackage `
+          -PackageName $packageName `
+          -FileType 'exe' `
+          -SilentArgs $silentArgs `
+          -File "$visualStudio:setupFolder\setup.exe" `
+          -ValidExitCodes $validExitCodes
+    }
+    else
+    {
+        Write-Output "Install-ChocolateyPackage $packageName $installerType $silentArgs $url -validExitCodes $validExitCodes"
+        Install-ChocolateyPackage $packageName $installerType $silentArgs $url -validExitCodes $validExitCodes
+    }
 
-    Write-Output "Install-ChocolateyPackage $packageName $installerType $silentArgs $url -validExitCodes $validExitCodes"
-    Install-ChocolateyPackage $packageName $installerType $silentArgs $url -validExitCodes $validExitCodes
+    TeardownIso
+
+}
+
+<#
+Checks for user specified local path and mounts iso if necessary
+#>
+function DetermineSetupPath(){
+
+    if (!(Test-Path env:\visualStudio:setupFolder)){
+
+        if (!(Test-Path env:\visualStudio:isoImage)) 
+        {
+	        Write-Host "Visual Studio will be installed from Web"
+            return
+        }
+        
+        $global:mustDismountIso = $true;
+        $mountedIso = Mount-DiskImage -PassThru "$env:visualStudio:isoImage"
+        $isoDrive = Get-Volume -DiskImage $mountedIso | Select -expand DriveLetter
+        Write-Host "Mounted ISO to $isoDrive"
+        $env:visualStudio:setupFolder = "$isoDrive`:\"
+    }
+}
+
+function TeardownIso(){
+    
+    if ($global:mustDismountIso){
+        Write-Host "Dismounting ISO"
+        Dismount-DiskImage -ImagePath $env:visualStudio:isoImage
+    }
+    else
+    {
+        Write-Host "No ISO to dismount"
+    }
 }
 
 function Uninstall-VS {
