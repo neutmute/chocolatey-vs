@@ -176,12 +176,12 @@ param(
 	
     if (Test-Path env:\visualStudio:setupFolder)
     {
-        Write-Output "Installing Visual Studio from $visualStudio:setupFolder"
+        Write-Output "Installing Visual Studio from $env:visualStudio:setupFolder"
         Install-ChocolateyInstallPackage `
           -PackageName $packageName `
           -FileType 'exe' `
           -SilentArgs $silentArgs `
-          -File "$visualStudio:setupFolder\$exeName" `
+          -File "$env:visualStudio:setupFolder\$exeName" `
           -ValidExitCodes $validExitCodes
     }
     else
