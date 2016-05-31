@@ -22,9 +22,9 @@
 ### Versioning
 Given the pattern `major.minor.build.revision`, the nuget package follows the convention of
 
-- major = 14 - visual studio version
-- minor = 2 - visual studio update version 
-- build = unused
+- major = visual studio major
+- minor = visual studio minor
+- build = visual studio build
 - revision = nuget package version  
 
 
@@ -41,7 +41,11 @@ Alternatively, specify path to an unzipped iso image:
 - `$env:visualStudio:setupFolder="D:\vs2015\"` 
 
 ## Contributions
-Contributions are welcome. Please raise an issue for discussion before submitting a PR.
+Contributions are welcome.
+ 
+- Please raise an issue for discussion before submitting a PR.
+- PR's should request merge into `develop` branch
+- `master` branch is reserved for myget builds that push to chocolatey
 
 ## Credits
 Packages previously created and maintained by

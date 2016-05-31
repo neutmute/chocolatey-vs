@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
 	<metadata>
 		<id>VisualStudio2015Community</id>
-		<version>14.2.0.01</version>
+		<version>14.0.25123.01</version>
 		<title>Visual Studio 2015 Community Update 2</title>
 		<authors>Microsoft</authors>
 		<owners>neutmute</owners>

@@ -3,7 +3,7 @@
   <metadata>
     <id>aspnetcore</id>
     <title>ASP.NET Core 1.0 RC1</title>
-    <version>1.0.0.1</version>
+    <version>1.0.0-RC1</version>
     <authors>Microsoft</authors>
     <owners>neutmute</owners>
     <summary>ASP.NET 5 RC1 Update 1 (Soon to be ASP.NET Core 1.0)</summary>
