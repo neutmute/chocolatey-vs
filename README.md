@@ -15,7 +15,17 @@
 - [https://chocolatey.org/packages/VisualStudio2015Community](https://chocolatey.org/packages/VisualStudio2015Community)
 - `choco install visualstudio2015community`
 
-### Versioning
+## Installation Troubleshooting
+###### Reboot required
+- Chocolatey report a failure to install. This can be because of a pending reboot (error code 1116). 
+- Work around: Reboot and try again
+
+###### Timeout
+- Installations taking more than 45 minutes will be killed by chocolatey
+- Work around 1: Extend timeout: `choco install visualstudio2015enterprise --execution-timeout=3600`
+- Work around 2: Use local installation media (see below)
+
+## Versioning
 Given the pattern `major.minor.build.revision`, the nuget package follows the convention of
 
 - major = visual studio major
